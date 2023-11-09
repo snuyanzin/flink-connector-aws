@@ -34,6 +34,9 @@ under the License.
 
     <packaging>jar</packaging>
 
+    <properties>
+        <flink.surefire.baseArgLine>-XX:+UseG1GC -Xms256m --add-opens java.base/java.util=ALL-UNNAMED</flink.surefire.baseArgLine>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
