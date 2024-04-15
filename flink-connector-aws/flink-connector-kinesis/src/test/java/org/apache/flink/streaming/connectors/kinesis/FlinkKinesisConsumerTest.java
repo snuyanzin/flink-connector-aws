@@ -69,7 +69,7 @@ import org.apache.flink.util.TestLogger;
 import com.amazonaws.services.kinesis.model.HashKeyRange;
 import com.amazonaws.services.kinesis.model.SequenceNumberRange;
 import com.amazonaws.services.kinesis.model.Shard;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
@@ -114,8 +114,8 @@ public class FlinkKinesisConsumerTest extends TestLogger {
     // Tests related to state initialization
     // ----------------------------------------------------------------------
 
-    @BeforeClass
-    public static void setUp() {
+    @Before
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 
