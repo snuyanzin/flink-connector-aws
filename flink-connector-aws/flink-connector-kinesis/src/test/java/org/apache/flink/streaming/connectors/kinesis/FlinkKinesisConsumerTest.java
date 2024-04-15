@@ -69,11 +69,13 @@ import org.apache.flink.util.TestLogger;
 import com.amazonaws.services.kinesis.model.HashKeyRange;
 import com.amazonaws.services.kinesis.model.SequenceNumberRange;
 import com.amazonaws.services.kinesis.model.Shard;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -111,6 +113,12 @@ public class FlinkKinesisConsumerTest extends TestLogger {
     // ----------------------------------------------------------------------
     // Tests related to state initialization
     // ----------------------------------------------------------------------
+
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     public void testUseRestoredStateForSnapshotIfFetcherNotInitialized() throws Exception {
