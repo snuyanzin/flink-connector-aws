@@ -114,7 +114,6 @@ public class FlinkKinesisConsumerTest extends TestLogger {
     // Tests related to state initialization
     // ----------------------------------------------------------------------
 
-
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
