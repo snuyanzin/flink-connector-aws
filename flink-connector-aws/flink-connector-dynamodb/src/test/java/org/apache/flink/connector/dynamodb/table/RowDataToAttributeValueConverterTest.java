@@ -18,7 +18,6 @@
 
 package org.apache.flink.connector.dynamodb.table;
 
-import org.apache.commons.lang3.JavaVersion;
 import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.data.DecimalData;
 import org.apache.flink.table.data.GenericArrayData;
@@ -204,9 +203,8 @@ public class RowDataToAttributeValueConverterTest {
         Map<String, AttributeValue> actualResult =
                 rowDataToAttributeValueConverter.convertRowData(createElement(value));
         final String javaVersion = System.getProperty("java.version");
-        final String expectedValue = javaVersion.compareTo("20") < 0
-                ? "1.23456791E17"
-                : "1.2345679E17";
+        final String expectedValue =
+                javaVersion.compareTo("20") < 0 ? "1.23456791E17" : "1.2345679E17";
         Map<String, AttributeValue> expectedResult =
                 singletonMap(key, AttributeValue.builder().n(expectedValue).build());
 
